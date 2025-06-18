@@ -4,16 +4,23 @@
     box-sizing: border-box;
 }
 body{
-    background: blue;
+    background: white;
 }
 
-.app{
-    background: #fff;
+.app {
+    background: linear-gradient(135deg, #a3c9f1, #7bb3e6);
     width: 90%;
     max-width: 600px;
     margin: 100px auto 0;
     padding: 30px;
     border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.app:hover {
+    background: #4a90e2; 
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); 
 }
 .app h1{
     font-size: 25px;
@@ -30,7 +37,7 @@ body{
     color: #001e4d;
     font-weight: 600;
 }
-.btn{
+.btn {
     background: #fff;
     color: #222;
     font-weight: 500;
@@ -41,13 +48,17 @@ body{
     text-align: left;
     cursor: pointer;
     border-radius: 4px;
-}
-.btn:hover{
-    background: #222;
-    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#next-btn{
+.btn:hover {
+    background: #4a90e2;
+    color: #fff;
+    border-color: #4a90e2;
+}
+
+
+#next-btn {
     background: #001e4d;
     color: #fff;
     font-weight: 500;
@@ -57,6 +68,11 @@ body{
     margin: 20px auto 0;
     border-radius: 4px;
     cursor: pointer;
-    display:none;
+    display: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+#next-btn:hover {
+    background-color: #003080;
+    box-shadow: 0 4px 10px rgba(0, 30, 77, 0.6);
 }
