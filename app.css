@@ -1,78 +1,93 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    background: white;
+
+/* Reset أساسي */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: sans-serif;
+}
+
+/* خلفية تغطي الشاشة كلها */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.pinimg.com/736x/7f/ba/aa/7fbaaac10c791f1c095c1faa32173015.jpg') no-repeat center center/cover;
+  z-index: -1;
+}
+
+/* الحاوية الرئيسية بدون خلفية */
 .app {
-    background: linear-gradient(135deg, #a3c9f1, #7bb3e6);
-    width: 90%;
-    max-width: 600px;
-    margin: 100px auto 0;
-    padding: 30px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: transparent;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
-.app:hover {
-    background: #4a90e2; 
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); 
+/* العنوان */
+.app h1 {
+  font-size: 25px;
+  color: black;
+  font-weight: 600;
+  padding-bottom: 30px;
 }
-.app h1{
-    font-size: 25px;
-    color: #001e4d;
-    font-weight: 600;
-    border-bottom: 1px solid #333;
-    padding-bottom: 30px;
+
+/* السؤال */
+.quiz h2 {
+  font-size: 20px;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-.quiz{
-    padding: 20px 0;
-}
-.quiz h2{
-    font-size: 18px;
-    color: #001e4d;
-    font-weight: 600;
-}
+
+/* الإجابات */
 .btn {
-    background: #fff;
-    color: #222;
-    font-weight: 500;
-    width: 100%;
-    border: 1px solid #222;
-    padding: 10px;
-    margin: 10px 0;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background: transparent;
+  color: black;
+  font-weight: 400;
+  font-size: 18px;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: none;
 }
 
+/* إلغاء تأثير hover */
 .btn:hover {
-    background: #4a90e2;
-    color: #fff;
-    border-color: #4a90e2;
+  background: transparent;
+  color: black;
+  border-color: black;
 }
 
-
+/* زر التالي */
 #next-btn {
-    background: #001e4d;
-    color: #fff;
-    font-weight: 500;
-    width: 150px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
-    border-radius: 4px;
-    cursor: pointer;
-    display: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  width: 150px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+  transition: none;
 }
 
 #next-btn:hover {
-    background-color: #003080;
-    box-shadow: 0 4px 10px rgba(0, 30, 77, 0.6);
+  background: transparent;
+  box-shadow: none;
 }
