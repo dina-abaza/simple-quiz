@@ -20,24 +20,39 @@ const quizData = [
 let currentQuestionIndex = 0;
 let score = 0;
 
-function startquiz() {
+function startQuiz() {
   let currentQuestion = quizData[currentQuestionIndex];
   document.getElementById("question").textContent = currentQuestion.question;
   const answerButtons = document.querySelectorAll(".btn");
 
   answerButtons.forEach((button, index) => {
     button.textContent = currentQuestion.answers[index];
+    button.style.borderColor = "black"; // إعادة ضبط الحدود
+    button.disabled = false; // تفعيل الأزرار
     button.onclick = () => selectAnswer(button, currentQuestion);
   });
+
+  document.getElementById("next-btn").style.display = 'none';
 }
 
 function selectAnswer(button, currentQuestion) {
   const selectedAnswer = button.textContent;
+  const answerButtons = document.querySelectorAll(".btn");
+
+  // تعطيل باقي الأزرار بعد الاختيار
+  answerButtons.forEach(btn => btn.disabled = true);
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
-    button.style.borderColor = "lime"; // ممكن نحط لون بسيط بس ما فيش خلفية
+    button.style.borderColor = "lime";
+    score++;
   } else {
     button.style.borderColor = "red";
+    // تمييز الإجابة الصحيحة
+    answerButtons.forEach(btn => {
+      if (btn.textContent === currentQuestion.correctAnswer) {
+        btn.style.borderColor = "lime";
+      }
+    });
   }
 
   document.getElementById("next-btn").style.display = 'block';
@@ -45,16 +60,16 @@ function selectAnswer(button, currentQuestion) {
 
 document.getElementById("next-btn").onclick = () => {
   currentQuestionIndex++;
-  const answerButtons = document.querySelectorAll(".btn");
-  answerButtons.forEach(button => {
-    button.style.borderColor = 'white';
-  });
 
   if (currentQuestionIndex < quizData.length) {
-    startquiz();
+    startQuiz();
   } else {
     alert("Quiz Finished! Your score: " + score + " out of " + quizData.length);
+    // إعادة التهيئة والبداية من جديد
+    currentQuestionIndex = 0;
+    score = 0;
+    startQuiz();
   }
 };
 
-window.onload = startquiz;
+window.onload = startQuiz;
